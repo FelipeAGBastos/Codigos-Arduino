@@ -1,0 +1,120 @@
+#define IN1A 5
+#define IN2A 3
+  
+#define IN1B 11
+#define IN2B 10
+
+char valor = 'p';
+
+void setup(){
+  
+  pinMode(IN1A, OUTPUT);
+  pinMode(IN2A, OUTPUT);
+  
+  pinMode(IN1B, OUTPUT);
+  pinMode(IN2B, OUTPUT);
+  
+  pinMode(8, OUTPUT);
+  pinMode(13, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(7, OUTPUT);
+  
+  Serial.begin(9600);
+}
+
+void loop(){
+  
+  if(Serial.available()>0){
+    valor = Serial.read();
+  }
+  
+  //LED'S
+  if(valor == 'U'){
+    digitalWrite(8, HIGH);
+    digitalWrite(7, HIGH);
+    delay(500);
+    digitalWrite(8, LOW);
+    digitalWrite(7, LOW);
+    delay(500);
+  }
+  
+  if(valor == 'u'){
+    digitalWrite(8, LOW);
+  }
+  
+ if(valor == 'W'){
+   digitalWrite(13, HIGH);
+ } 
+  
+ if(valor == 'w'){
+   digitalWrite(13, LOW);
+ }
+    
+  // PIEZO
+  if(valor == 'h'){
+   digitalWrite(9, LOW);
+ }
+  
+ if(valor == 'H'){
+   digitalWrite(9, HIGH);
+ }
+  
+  //EXTRA (LED)
+  if(valor == 'e'){
+   digitalWrite(8, HIGH);
+   delay(500);
+   digitalWrite(8, LOW);
+   delay(500);
+  }
+  
+  if(valor == 'p'){
+   digitalWrite(8, LOW); 
+  }
+
+  if(valor == 'd'){
+    digitalWrite(7, HIGH);
+    delay(500);
+    digitalWrite(7, LOW);
+    delay(500);
+  }
+  
+  if(valor == 'p'){
+    digitalWrite(7, LOW);
+  }
+
+  //MOTOR
+  if(valor == 't'){
+    digitalWrite(IN1A, HIGH);
+    digitalWrite(IN2A, LOW);
+    digitalWrite(IN1B, HIGH);
+    digitalWrite(IN2B, LOW);
+  }
+  
+  if(valor == 'f'){
+    digitalWrite(IN1A, LOW);
+    digitalWrite(IN2A, HIGH);
+    digitalWrite(IN1B, LOW);
+    digitalWrite(IN2B, HIGH);
+  }
+  
+  if(valor == 'e'){
+   digitalWrite(IN1A, HIGH);
+   digitalWrite(IN2A, LOW);
+   digitalWrite(IN1B, LOW);
+   digitalWrite(IN2B, HIGH);
+  }
+  
+  if(valor == 'd'){
+   digitalWrite(IN1A, LOW);
+   digitalWrite(IN2A, HIGH);
+   digitalWrite(IN1B, HIGH);
+   digitalWrite(IN2B, LOW);
+  }
+  
+  if(valor == 'p'){
+    digitalWrite(IN1A, LOW);
+    digitalWrite(IN2A, LOW);
+    digitalWrite(IN1B, LOW);
+    digitalWrite(IN2B, LOW);
+ }
+}

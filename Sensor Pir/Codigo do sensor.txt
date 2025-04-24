@@ -1,0 +1,39 @@
+int PIR = 0;
+int LED = 4;
+int BUZZER = 5;
+
+void setup() {
+  pinMode(LED, OUTPUT);
+  pinMode(BUZZER, OUTPUT);
+  digitalWrite(LED, LOW);
+  digitalWrite(BUZZER, LOW);
+  Serial.begin(9600); 
+}
+
+void loop() {
+  PIR = digitalRead(3);
+  Serial.print("ler PIR: ");
+  Serial.println(PIR);
+  
+  if (PIR == HIGH) {
+    digitalWrite(LED, HIGH);
+    tocarAlarme(); 
+  }
+
+  if (PIR == LOW) {
+    digitalWrite(LED, LOW);
+    noTone(BUZZER); 
+  }
+}
+
+
+void tocarAlarme() {
+  tone(BUZZER, 1000);
+  delay(100);
+  tone(BUZZER, 1200); 
+  delay(100);
+  tone(BUZZER, 800);  
+  delay(100);
+  noTone(BUZZER);     
+  delay(100);
+}
