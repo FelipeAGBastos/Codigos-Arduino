@@ -1,0 +1,32 @@
+# 🌡️ Alarme de Temperatura com Arduino
+
+Este projeto utiliza um sensor analógico de temperatura (termistor ou LM35) para acionar LEDs ou sirene quando a temperatura passa de 38°C.
+
+## 🚀 Tecnologias Utilizadas
+- Arduino UNO
+- Termistor / LM35
+- LEDs indicadores
+- Fonte de referência analógica externa (opcional)
+
+## 💡 Funcionalidades
+- Leitura analógica da temperatura
+- Conversão para graus Celsius
+- Ativação de LED/sinal sonoro acima de 38°C
+
+## 📘 Conexões
+- Sensor analógico → A0
+- LED de aviso (nm) → Pino 12
+- LED/buzzer final (fb) → Pino 13
+
+## 🧮 Fórmula de conversão usada
+```c
+tensao = binario * (1.75 / 355);
+temp = (tensao - 0.5) * 100;
+
+
+▶️ Como Usar
+Conecte o sensor de temperatura ao pino A0.
+
+Carregue o código no Arduino.
+
+Observe a leitura no Serial Monitor.
