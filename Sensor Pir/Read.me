@@ -1,0 +1,28 @@
+# 👁️‍🗨️ Alarme de Presença com PIR e Buzzer
+
+Sistema simples de segurança que detecta presença via sensor PIR, acende um LED e toca um alarme sonoro com buzzer.
+
+## 🚀 Tecnologias Utilizadas
+- Arduino UNO
+- Sensor PIR (movimento)
+- LED indicador
+- Buzzer piezoelétrico
+
+## 💡 Funcionalidades
+- Detecção de presença
+- Acende LED quando há movimento
+- Toca alarme com variação de tons
+- Desativa o alarme quando o ambiente está parado
+
+## 📘 Conexões
+- PIR → Pino 3 (digital)
+- LED → Pino 4
+- Buzzer → Pino 5
+
+## ▶️ Como Usar
+1. Conecte os componentes conforme descrito.
+2. Carregue o código no Arduino.
+3. Monitore o serial para verificar a leitura do PIR.
+
+## 🔊 Função `tocarAlarme()`
+A função utiliza tons alternados para simular um som de alarme:
